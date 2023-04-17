@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "sQShkiper\\MediaManager\\": "src",
+            "sQShkiper\\MediaManager\\": "src"
         }
     },
     "extra": {

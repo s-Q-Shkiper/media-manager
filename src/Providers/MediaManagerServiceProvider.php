@@ -1,6 +1,6 @@
 <?php
 
-namespace sQShkiper\MediaManager\Providers;
+namespace Shkiper\MediaManager\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

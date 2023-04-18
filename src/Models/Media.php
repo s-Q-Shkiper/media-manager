@@ -1,6 +1,6 @@
 <?php
 
-namespace sQShkiper\MediaManager\Models;
+namespace Shkiper\MediaManager\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

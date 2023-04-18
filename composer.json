@@ -14,13 +14,13 @@
     },
     "autoload": {
         "psr-4": {
-            "sQShkiper\\MediaManager\\": "src"
+            "Shkiper\\MediaManager\\": "src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "sQShkiper\\MediaManager\\Providers\\MediaManagerServiceProvider"
+                "Shkiper\\MediaManager\\Providers\\MediaManagerServiceProvider"
             ]
         }
     }

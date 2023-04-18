@@ -1,6 +1,6 @@
 <?php
 
-namespace sQShkiper\MediaManager\Http\Controllers;
+namespace Shkiper\MediaManager\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 

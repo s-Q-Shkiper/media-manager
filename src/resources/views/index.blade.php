@@ -19,133 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-
-    <style>
-        .media_files_preview{
-            margin-top: 15px;
-            border: 1px solid #aaa;
-            padding: 10px;
-            border-radius: 8px;
-            min-height: 230px;
-            max-height: 600px;
-            overflow: auto;
-        }
-        .path_container{
-            display: flex;
-            justify-content: space-between;
-        }
-        #path{
-            list-style-type: none;
-            padding: 0;
-            margin: 15px 0;
-            display: flex;
-            justify-content: flex-start;
-        }
-        #media_elements_container{
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-        .folder_navigate_first{
-            padding-right: 10px;
-            font-weight: bold;
-        }
-
-        .folder_navigate{
-            cursor: pointer;
-        }
-        .folder_navigate:hover {
-            text-decoration: underline;
-        }
-
-        .card{
-            max-width: 14rem;
-            margin: 10px;
-            flex-grow: 1;
-        }
-
-        .btn:focus, .btn:active, .btn-close:focus {
-            outline: none;
-            box-shadow: none !important;
-        }
-
-        .card-img-top{
-            background: url(/bg.png);
-            background-size: cover;
-            width: 100%;
-            height: 100%;
-            max-width: 222px;
-            max-height: 140px;
-            object-fit: contain;
-        }
-
-        .media_items_controls_container{
-            width: 100%;
-            height: 100%;
-            max-width: 222px;
-            max-height: 140px;
-            position: absolute;
-        }
-
-        .media_items_controls{
-            opacity: 0;
-            background-color: #000000bd;
-            background-image: url(/dots.svg);
-            background-size: 30px;
-            background-position: center;
-            width: 30px;
-            height: 34px;
-            border-radius: 8px;
-            position: absolute;
-            right: 3px;
-            top: 3px;
-            cursor: pointer;
-            transition: all 0.5s;
-            z-index: 1;
-        }
-
-        .media_items_controls_container:hover .media_items_controls{
-            opacity: 1;
-        }
-
-        .dropdown-menu{
-            font-size: 15px;
-        }
-
-        .dropdown-toggle{
-            width: 100%;
-            height: 100%;
-        }
-
-        .card-body {
-            padding: 10px;
-            max-height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-text{
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .folder_name:hover{
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 390px){
-            #media_elements_container {
-                justify-content: center;
-            }
-        }
-
-    </style>
+    <link href="/media-manager-asset/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -269,7 +143,7 @@
                             </ul>
                         </div>
                     </div>
-                    <img class="card-img-top" src="/media-manager-images/folders.png">
+                    <img class="card-img-top" src="/media-manager-asset/folders.png">
                     <div class="card-body">
                         <p class="card-text folder_name" data-folder_name="{{ $name }}" onclick="folderNavigate(this)">{{ $name }}</p>
                     </div>
@@ -287,13 +161,13 @@
                             break;
                         case 'zip':
                         case 'rar':
-                            $src = '/media-manager-images/archive.png';
+                            $src = '/media-manager-asset/archive.png';
                             break;
                         case 'txt':
-                            $src = '/media-manager-images/txt.png';
+                            $src = '/media-manager-asset/txt.png';
                             break;
                         default:
-                            $src = '/media-manager-images/file.png';
+                            $src = '/media-manager-asset/file.png';
                             break;
                     }
                 @endphp
@@ -548,7 +422,7 @@
                     </ul>
                 </div>
             </div>
-            <img class="card-img-top" src="/media-manager-images/folders.png">
+            <img class="card-img-top" src="/media-manager-asset/folders.png">
                 <div class="card-body">
                     <p class="card-text folder_name" data-folder_name="${ name }" onclick="folderNavigate(this)">${ name }</p>
                 </div>
@@ -571,13 +445,13 @@
                     break;
                 case 'zip':
                 case 'rar':
-                    src = '/media-manager-images/archive.png';
+                    src = '/media-manager-asset/archive.png';
                     break;
                 case 'txt':
-                    src = '/media-manager-images/txt.png';
+                    src = '/media-manager-asset/txt.png';
                     break;
                 default:
-                    src = '/media-manager-images/file.png';
+                    src = '/media-manager-asset/file.png';
                     break;
             }
 

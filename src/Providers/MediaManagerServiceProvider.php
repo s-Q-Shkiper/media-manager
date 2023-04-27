@@ -28,7 +28,7 @@ class MediaManagerServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__.'/../public/media-manager-images' => public_path('media-manager-images'),
+            __DIR__.'/../public/media-manager-asset' => public_path('media-manager-asset'),
         ]);
     }
 }

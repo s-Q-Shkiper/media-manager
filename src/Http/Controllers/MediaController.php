@@ -11,6 +11,11 @@ class MediaController extends Controller
 {
     public function index()
     {
+        if(!File::exists(public_path('media'))) {
+            //Если папки нет - создаст её
+            File::makeDirectory(public_path('media'), 0755, true);
+        }
+
         $directories = File::directories(public_path('media'));
         $files = File::files(public_path('media'));
 

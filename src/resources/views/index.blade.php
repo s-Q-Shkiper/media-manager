@@ -269,7 +269,7 @@
                             </ul>
                         </div>
                     </div>
-                    <img class="card-img-top" src="folders.png">
+                    <img class="card-img-top" src="/media-manager-images/folders.png">
                     <div class="card-body">
                         <p class="card-text folder_name" data-folder_name="{{ $name }}" onclick="folderNavigate(this)">{{ $name }}</p>
                     </div>
@@ -287,13 +287,13 @@
                             break;
                         case 'zip':
                         case 'rar':
-                            $src = 'archive.png';
+                            $src = '/media-manager-images/archive.png';
                             break;
                         case 'txt':
-                            $src = 'txt.png';
+                            $src = '/media-manager-images/txt.png';
                             break;
                         default:
-                            $src = 'file.png';
+                            $src = '/media-manager-images/file.png';
                             break;
                     }
                 @endphp
@@ -548,7 +548,7 @@
                     </ul>
                 </div>
             </div>
-            <img class="card-img-top" src="folders.png">
+            <img class="card-img-top" src="/media-manager-images/folders.png">
                 <div class="card-body">
                     <p class="card-text folder_name" data-folder_name="${ name }" onclick="folderNavigate(this)">${ name }</p>
                 </div>
@@ -571,13 +571,13 @@
                     break;
                 case 'zip':
                 case 'rar':
-                    src = 'archive.png';
+                    src = '/media-manager-images/archive.png';
                     break;
                 case 'txt':
-                    src = 'txt.png';
+                    src = '/media-manager-images/txt.png';
                     break;
                 default:
-                    src = 'file.png';
+                    src = '/media-manager-images/file.png';
                     break;
             }
 

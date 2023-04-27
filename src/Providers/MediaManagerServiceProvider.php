@@ -26,5 +26,9 @@ class MediaManagerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/mediamanager'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/../public/media-manager-images' => public_path('media-manager-images'),
+        ]);
     }
 }

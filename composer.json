@@ -11,5 +11,17 @@
     ],
     "require": {
         "php": "^8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shkiper\\MediaManager\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Shkiper\\MediaManager\\Providers\\MediaManagerServiceProvider"
+            ]
+        }
     }
 }

@@ -61,12 +61,10 @@
             text-decoration: underline;
         }
 
-        .slash{
-            padding: 0 4px;
-        }
-
         .card{
+            max-width: 14rem;
             margin: 10px;
+            flex-grow: 1;
         }
 
         .btn:focus, .btn:active, .btn-close:focus {
@@ -139,6 +137,12 @@
         .folder_name:hover{
             cursor: pointer;
             text-decoration: underline;
+        }
+
+        @media (max-width: 390px){
+            #media_elements_container {
+                justify-content: center;
+            }
         }
 
     </style>
@@ -253,7 +257,7 @@
                     $directory = explode('/',$directory);
                     $name = end($directory);
                 @endphp
-                <li class="card" style="width: 14rem;">
+                <li class="card">
                     <div class="media_items_controls_container">
                         <div class="dropdown media_items_controls">
                             <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
@@ -294,7 +298,7 @@
                     }
                 @endphp
 
-                <li class="card" style="width: 14rem;">
+                <li class="card" >
                     <div class="media_items_controls_container">
                         <div class="dropdown media_items_controls">
                             <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
@@ -532,7 +536,7 @@
             let name = arr.slice(-1).pop();
 
             directories += `
-            <li class="card" style="width: 14rem;">
+            <li class="card">
             <div class="media_items_controls_container">
                 <div class="dropdown media_items_controls">
                     <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
@@ -578,7 +582,7 @@
             }
 
             files += `
-            <li class="card" style="width: 14rem;">
+            <li class="card">
             <div class="media_items_controls_container">
                 <div class="dropdown media_items_controls">
                     <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>

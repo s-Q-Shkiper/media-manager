@@ -10,11 +10,8 @@ class Media extends Model
     use HasFactory;
 
     protected $fillable = [
-        'original_name',
-        'path_name',
-        'extension',
-        'path',
-        'sort',
+        'name',
+        'path'
     ];
 
 

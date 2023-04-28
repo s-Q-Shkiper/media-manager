@@ -13,11 +13,8 @@ return new class extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
-            $table->string('original_name', 255);
-            $table->string('path_name', 255);
+            $table->string('name', 255);
             $table->string('path', 500);
-            $table->string('extension');
-            $table->integer('sort')->default(0);
             $table->timestamps();
         });
     }

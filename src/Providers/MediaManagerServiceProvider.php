@@ -26,9 +26,7 @@ class MediaManagerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/mediamanager'),
             __DIR__.'/../public/media-manager-asset' => public_path('media-manager-asset'),
-            __DIR__.'/../database/migrations/2023_04_17_062213_create_media_table.php' => public_path('database/migrations'),
-            __DIR__.'/../Models/Media.php' => public_path('app/Models'),
-            __DIR__.'/../Http/Controllers/MediaController.php' => public_path('app/Http/Controllers'),
+            __DIR__.'/../database/migrations/2023_04_17_062213_create_media_table.php' => 'database/migrations/2023_04_17_062213_create_media_table.php',
         ]);
     }
 }

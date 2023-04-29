@@ -89,6 +89,25 @@
     </div>
 </div>
 
+{{-- Modal Просмотра инфо --}}
+<div class="modal fade" id="infoModal" role="dialog" aria-hidden="true">
+    <div class="info_modal modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Просмотр</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="info_text"></p>
+                <img id="info_img" src="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="close_remove" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <h3>Media-manager</h3>
 
@@ -179,7 +198,10 @@
                             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                                 <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#renameModal" data-title="{{ $file->getFilename() }}"
                                           data-rename_type="file" onclick="rename(this)">Редактировать</span></li>
-                                <li><a class="dropdown-item" href="#">Информация</a></li>
+
+                                <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#infoModal" data-title="{{ $file->getFilename() }}"
+                                          onclick="showInfo(this)">Информация</span></li>
+
                                 <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#removeModal" data-title="{{ $file->getFilename() }}"
                                           data-remove_type="file" onclick="remove(this)">Удалить</span></li>
                             </ul>
@@ -463,7 +485,8 @@
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                         <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#renameModal" data-title="${ name }"
                                   data-rename_type="file" onclick="rename(this)">Редактировать</span></li>
-                        <li><a class="dropdown-item" href="#">Информация</a></li>
+                        <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#infoModal" data-title="${ name }"
+                                          onclick="showInfo(this)">Информация</span></li>
                         <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#removeModal" data-title="${ name }"
                                   data-remove_type="file" onclick="remove(this)">Удалить</span></li>
                     </ul>
@@ -507,6 +530,11 @@
         xhr.send(data);
 
     };
+
+    function showInfo(element){
+        document.querySelector('#info_img').src = current_path + '/' + element.getAttribute('data-title');
+        document.querySelector('#info_text').innerText = `<img src="${current_path + '/' + element.getAttribute('data-title')}">`;
+    }
 
 
 </script>

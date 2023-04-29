@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Storage;
+use Shkiper\MediaManager\Models\Media;
 
 class MediaController extends Controller
 {
@@ -49,12 +50,18 @@ class MediaController extends Controller
                 $check = $this->checkFolderName($path);
 
                 if($check) {
+
+                    $medias = Media::where('path','like', '%'.$request->current_path . '/' . $request->old_name.'%')->get();
                     $p1 = public_path( $request->current_path . '/' . $request->old_name);
                     $p2 = $path;
 
                     if ( rename( $p1, $p2 ) ){
 
-                        // TODO Когда в базе будут файлы надо при переименовании заменить все роуты
+                        foreach ($medias as $media){
+                            $media->update([
+                                'path' => str_replace($request->current_path . '/' . $request->old_name,$request->current_path . '/' . $request->new_name, $media->path)
+                            ]);
+                        }
 
                         return response()->json([ 'status' => 'success', 'msg' => 'Изменено успешно.' ]);
                     } else {
@@ -70,12 +77,17 @@ class MediaController extends Controller
                 $check = $this->checkFileName($path);
 
                 if($check) {
+
+                    $media = Media::where('path', $request->current_path . '/' . $request->old_name)->first();
                     $p1 = public_path( $request->current_path . '/' . $request->old_name);
                     $p2 = $path;
 
                     if ( rename( $p1, $p2 ) ){
 
-                        // TODO Когда в базе будут файлы надо при переименовании заменить все роуты
+                        $media->update([
+                            'name' => $request->new_name,
+                            'path' => $request->current_path . '/' . $request->new_name
+                        ]);
 
                         return response()->json([ 'status' => 'success', 'msg' => 'Изменено успешно.' ]);
                     } else {
@@ -97,12 +109,12 @@ class MediaController extends Controller
                 foreach ($items as $file) {
                     $originalName = $file->getClientOriginalName();
                     $name = time() . "_" . $originalName;
-                    $extension = $file->guessExtension();
-//            Для сохранения в базу
-//            $table->string('original_name', 255); $originalName
-//            $table->string('path_name', 255); $name
-//            $table->string('path', 500); $request->current_path + $name
-//            $table->string('extension'); $extension
+
+                    Media::create([
+                        'name' => $name,
+                        'path' => $request->current_path . '/' . $name
+                    ]);
+
                     move_uploaded_file($file->getPathName(), $request->current_path . '/' . $name);
                 }
             }
@@ -116,15 +128,22 @@ class MediaController extends Controller
     {
         $path = public_path( $request->current_path . '/' . $request->to_remove);
 
-        // TODO Удаление из базы
-
         if ( $request->remove_type === 'folder' ){
+            $medias = Media::where('path','like', '%'.$request->current_path . '/' . $request->to_remove.'%')->get();;
+
             if( File::deleteDirectory($path) ){
+                foreach ($medias as $media){
+                    $media->delete();
+                }
                 return response()->json([ 'status' => 'success', 'msg' => 'Удалено успешно.' ]);
             }
         }
+
         if ( $request->remove_type === 'file' ){
-           if( File::delete($path) ){
+            $media = Media::where('path', $request->current_path . '/' . $request->to_remove)->first();
+
+            if( File::delete($path) ){
+               $media->delete();
                return response()->json([ 'status' => 'success', 'msg' => 'Удалено успешно.' ]);
            }
         }

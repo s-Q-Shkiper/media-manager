@@ -116,6 +116,15 @@
     text-decoration: underline;
 }
 
+.info_modal{
+    max-width: 50vw;
+}
+
+#info_img{
+    width: 100%;
+    height: 100%;
+}
+
 @media (max-width: 390px){
     #media_elements_container {
         justify-content: center;

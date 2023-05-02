@@ -150,11 +150,11 @@
                     $directory = explode('/',$directory);
                     $name = end($directory);
                 @endphp
-                <li class="card">
+                <li class="card media_card">
                     <div class="media_items_controls_container">
                         <div class="dropdown media_items_controls">
-                            <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
-                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                            <div class="dropdown-toggle media_dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
+                            <ul class="dropdown-menu media_dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                                 <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#renameModal" data-title="{{ $name }}"
                                           data-rename_type="folder" onclick="rename(this)">Редактировать</span></li>
                                 <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#removeModal" data-title="{{ $name }}"
@@ -162,9 +162,9 @@
                             </ul>
                         </div>
                     </div>
-                    <img class="card-img-top" src="/media-manager-asset/folders.png">
-                    <div class="card-body">
-                        <p class="card-text folder_name" data-folder_name="{{ $name }}" onclick="folderNavigate(this)">{{ $name }}</p>
+                    <img class="card-img-top media_card-img-top" src="/media-manager-asset/folders.png">
+                    <div class="card-body media_card-body">
+                        <p class="card-text media_card-text folder_name" data-folder_name="{{ $name }}" onclick="folderNavigate(this)">{{ $name }}</p>
                     </div>
                 </li>
             @endforeach
@@ -191,11 +191,11 @@
                     }
                 @endphp
 
-                <li class="card" >
+                <li class="card media_card">
                     <div class="media_items_controls_container">
                         <div class="dropdown media_items_controls">
-                            <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
-                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                            <div class="dropdown-toggle media_dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
+                            <ul class="dropdown-menu media_dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                                 <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#renameModal" data-title="{{ $file->getFilename() }}"
                                           data-rename_type="file" onclick="rename(this)">Редактировать</span></li>
 
@@ -207,9 +207,9 @@
                             </ul>
                         </div>
                     </div>
-                    <img class="card-img-top" src="{{ $src }}">
-                    <div class="card-body">
-                        <p class="card-text">{{ $file->getFilename() }}</p>
+                    <img class="card-img-top media_card-img-top" src="{{ $src }}">
+                    <div class="card-body media_card-body">
+                        <p class="card-text media_card-text">{{ $file->getFilename() }}</p>
                     </div>
                 </li>
             @endforeach
@@ -221,7 +221,6 @@
     </div>
 
 </div>
-</body>
 
 <script>
 
@@ -432,11 +431,11 @@
             let name = arr.slice(-1).pop();
 
             directories += `
-            <li class="card">
+            <li class="card media_card">
             <div class="media_items_controls_container">
                 <div class="dropdown media_items_controls">
-                    <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
-                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                    <div class="dropdown-toggle media_dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
+                    <ul class="dropdown-menu media_dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                         <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#renameModal" data-title="${ name }"
                                   data-rename_type="folder" onclick="rename(this)">Редактировать</span></li>
                         <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#removeModal" data-title="${ name }"
@@ -444,9 +443,9 @@
                     </ul>
                 </div>
             </div>
-            <img class="card-img-top" src="/media-manager-asset/folders.png">
-                <div class="card-body">
-                    <p class="card-text folder_name" data-folder_name="${ name }" onclick="folderNavigate(this)">${ name }</p>
+            <img class="card-img-top media_card-img-top" src="/media-manager-asset/folders.png">
+                <div class="card-body media_card-body">
+                    <p class="card-text media_card-text folder_name" data-folder_name="${ name }" onclick="folderNavigate(this)">${ name }</p>
                 </div>
             </li>
             `;
@@ -478,11 +477,11 @@
             }
 
             files += `
-            <li class="card">
+            <li class="card media_card">
             <div class="media_items_controls_container">
                 <div class="dropdown media_items_controls">
-                    <div class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
-                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                    <div class="dropdown-toggle media_dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"></div>
+                    <ul class="dropdown-menu media_dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                         <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#renameModal" data-title="${ name }"
                                   data-rename_type="file" onclick="rename(this)">Редактировать</span></li>
                         <li><span class="dropdown-item rename-btn" data-bs-toggle="modal" data-bs-target="#infoModal" data-title="${ name }"
@@ -492,9 +491,9 @@
                     </ul>
                 </div>
             </div>
-            <img class="card-img-top" src="${ src }">
-                <div class="card-body">
-                    <p class="card-text">${ name }</p>
+            <img class="card-img-top media_card-img-top" src="${ src }">
+                <div class="card-body media_card-body">
+                    <p class="card-text media_card-text">${ name }</p>
                 </div>
             </li>
             `;
@@ -539,5 +538,5 @@
 
 </script>
 
-
+</body>
 </html>

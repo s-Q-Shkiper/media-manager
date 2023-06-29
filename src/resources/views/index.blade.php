@@ -108,10 +108,12 @@
     </div>
 </div>
 
-<div class="container">
-    <h3>Media-manager</h3>
+    <div class="d-flex mb-3">
+        <h1 class="fs-4">Media-manager</h1>
+    </div>
 
-
+<div class="card">
+    <div class="card-body">
     {{-- Загрузчик файлов --}}
     <form method="POST" id="files" action="/mediamanager/uploadFiles" accept-charset="UTF-8" enctype="multipart/form-data">
 
@@ -220,6 +222,7 @@
 
     </div>
 
+    </div>
 </div>
 
 <script>
@@ -531,8 +534,8 @@
     };
 
     function showInfo(element){
-        document.querySelector('#info_img').src = current_path + '/' + element.getAttribute('data-title');
-        document.querySelector('#info_text').innerText = `<img src="${current_path + '/' + element.getAttribute('data-title')}">`;
+        document.querySelector('#info_img').src = '/' + current_path + '/' + element.getAttribute('data-title');
+        document.querySelector('#info_text').innerText = `<img src="${'/' + current_path + '/' + element.getAttribute('data-title')}">`;
     }
 
 
